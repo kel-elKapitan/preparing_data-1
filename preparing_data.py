@@ -39,13 +39,10 @@ get_data('Jeep')
 '''
 
 
-
-
 jeep = pd.read_csv('jeep.csv')
 
 # save the shape of the data at the beginning so we can compare later
 jeep_shape_beginning = jeep.shape
-
 
 #########################
 # Missing Values (start)# 
@@ -65,11 +62,8 @@ for i in range(0,len(variables)-1):
 # Create dataframe with the reduced number of variables
 jeep_slimmed = jeep[variable].copy(deep=True)
 
-
 # drop any records that have any missing values left at this point
 jeep_slimmed.dropna(inplace=True)
-
-
 
 #######################
 # Missing Values (end)# 
@@ -78,6 +72,7 @@ jeep_slimmed.dropna(inplace=True)
 ###################################################
 # Reformat and cast datatypes of features (start) #  
 ###################################################
+
 # split the values by the '@' and ' ' and put the 1st value in tuple back into variable
 def split_me_space(n):
     mine_to_go = []
@@ -102,7 +97,6 @@ jeep_slimmed['length'] = split_me_space(jeep_slimmed['length'])
 jeep_slimmed['maximum_seating'] = split_me_space(jeep_slimmed['maximum_seating'])
 jeep_slimmed['wheelbase'] = split_me_space(jeep_slimmed['wheelbase'])
 jeep_slimmed['width'] = split_me_space(jeep_slimmed['width'])
-
 
 # run through split_me_at and split_me_space
 jeep_slimmed['power_hp'] = split_me_at(jeep_slimmed['power'])
@@ -136,8 +130,6 @@ for i in my_rpm:
 # assign the_rpm integers into power_rpm variable
 jeep_slimmed['power_rpm'] = the_rpm
 
-
-
 # split the torque column into 2 values lb-ft at rpm
 my_rpm2 = []
 for n in jeep_slimmed['torque']:
@@ -158,15 +150,9 @@ for i in my_rpm2:
 # assign the_rpm2 integers into power_rpm variable
 jeep_slimmed['torque_rpm'] = the_rpm2
 
-
-
-
 # remove odd characters in the dataset that prevents type casting
 jeep_slimmed = jeep_slimmed[jeep_slimmed['back_legroom'] != '--']
 jeep_slimmed = jeep_slimmed[jeep_slimmed['fuel_tank_volume'] != '--']
-
-
-
 
 # Convert Datatypes that are not correct
 jeep_slimmed['back_legroom'] = jeep_slimmed['back_legroom'].astype('float') # continuous variable
@@ -203,22 +189,13 @@ jeep_slimmed['wheel_system_display'] = jeep_slimmed['wheel_system_display'].asty
 jeep_slimmed['wheelbase'] = jeep_slimmed['wheelbase'].astype('float') # continuous variable
 jeep_slimmed['width'] = jeep_slimmed['width'].astype('float') # continuous variable
 
-
-
-
-
-
 # remove the variables that were split for their information and are of no furthe use
 del jeep_slimmed['power']
 del jeep_slimmed['torque']
 
-
-
-
 #################################################
 # Reformat and cast datatypes of features (end) #  
 #################################################
-
 
 ######################
 # Data Check (start) # 
@@ -255,7 +232,6 @@ print('Difference in the number of Records: ' + str(removed_records))
 # Distributions of continuous variables (start) #
 #################################################
 
-
 # page 1 of the subplots
 fig, ax = plt.subplots(3,2 ,sharex= False, sharey=False)
 fig.suptitle('Distributions from the raw dataset - Page 1')
@@ -283,20 +259,17 @@ ax[1, 0].set_xlim(0, 25)
 ax[1, 1].set_title("Height")
 ax[1, 1].set_xlabel("Inches")
 
-
 ax[2, 0].set_title("Length")
 ax[2, 0].set_xlabel("Inches")
-
 
 ax[2, 1].set_title("Maximum Seating")
 ax[2, 1].set_xlabel("number of seats")
 ax[2, 1].set_xlim(3, 6)
 
 fig.tight_layout()
-plt.savefig('distributions_p1')
+
+plt.savefig('distributions_p1.jpg')
 plt.show()
-
-
 
 # page 2 of the subplots
 fig, ax = plt.subplots(3,2 ,sharex= False, sharey=False)
@@ -328,20 +301,14 @@ ax[2, 0].set_xlabel("horspower")
 ax[2, 1].set_title("torque")
 ax[2, 1].set_xlabel("lb's per foot")
 
-
 fig.tight_layout()
-plt.savefig('distributions_p2')
+
+plt.savefig('distributions_p2.jpg')
 plt.show()
-
-
 
 ###############################################
 # Distributions of continuous variables (end) #
 ###############################################
-
-
-
-
 
 print('Lets hope this data is clean enough to create models for the coming analyses')
 
