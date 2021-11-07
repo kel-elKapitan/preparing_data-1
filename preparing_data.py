@@ -2,18 +2,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-'''
+
 
 ###############################################################
 # Uncomment and Run only once to create sample of the dataset #
 ###############################################################
+'''
 def get_data(i):
 
 
     raw_test = []
     print('Creating csv for ' + i + '...')
     # import samples of the dataset, all vehicles split with the make_name column
-    iter_csv = pd.read_csv('<path_to_dataset>/used_cars_data.csv', iterator=True, chunksize=500)
+    iter_csv = pd.read_csv('../Dimension_Reduction/used_cars_data.csv', iterator=True, chunksize=500)
     raw = pd.concat([chunk[chunk['make_name'] == i] for chunk in iter_csv])
       
     raw.to_csv(i + '.csv')
@@ -32,11 +33,11 @@ def get_data(i):
     return
 
 get_data('Jeep')
-
+'''
 ###################################################
 # END of run once only - Recomment immediately ####
 ###################################################
-'''
+
 
 
 jeep = pd.read_csv('jeep.csv')
@@ -53,9 +54,10 @@ pd.set_option('display.max_rows', None)
 
 a = jeep.isnull().sum()/len(jeep)*100
 
+# remove variables with more than 10% missing values
 variables = jeep.columns
 variable = []
-# remove variables with more than 10% missing values
+
 for i in range(0,len(variables)-1):
     if a[i] <=10: # set threshold to 10%
         variable.append(variables[i])
@@ -205,7 +207,7 @@ del jeep_slimmed['torque']
 print('3. Final check to ensure no missing values and variables are of the correct type')
 print(jeep_slimmed.dtypes)
 print('\n\n')
-print('Percentage of missing values in the dataset')
+print('Percentage of missing values in the dataset per feature')
 print(str(jeep_slimmed.isnull().sum()/len(jeep_slimmed)*100))
 print('\n\n')
 print('A little peek at the top of the dataset')
@@ -246,24 +248,30 @@ ax[2][1].hist(jeep_slimmed['maximum_seating'], bins=20)
 # set the labels of the subplots
 ax[0, 0].set_title("Front Legroom")
 ax[0, 0].set_xlabel("Inches")
+ax[0, 0].set_ylabel("Frequency")
 ax[0, 0].set_xlim(40, 42)
 
 ax[0, 1].set_title("Back Legroom")
 ax[0, 1].set_xlabel("Inches")
+ax[0, 1].set_ylabel("Frequency")
 ax[0, 1].set_xlim(33, 41)
 
 ax[1, 0].set_title("Fuel Tank Volume")
 ax[1, 0].set_xlabel("Gallons")
+ax[1, 0].set_ylabel("Frequency")
 ax[1, 0].set_xlim(0, 25)
 
 ax[1, 1].set_title("Height")
 ax[1, 1].set_xlabel("Inches")
+ax[1, 1].set_ylabel("Frequency")
 
 ax[2, 0].set_title("Length")
 ax[2, 0].set_xlabel("Inches")
+ax[2, 0].set_ylabel("Frequency")
 
 ax[2, 1].set_title("Maximum Seating")
 ax[2, 1].set_xlabel("number of seats")
+ax[2, 1].set_ylabel("Frequency")
 ax[2, 1].set_xlim(3, 6)
 
 fig.tight_layout()
@@ -285,21 +293,27 @@ ax[2][1].hist(jeep_slimmed['torque_lb-ft'], bins=20)
 # set the labels of the subplots
 ax[0, 0].set_title("Wheelbase")
 ax[0, 0].set_xlabel("Inches")
+ax[0, 0].set_ylabel("Frequency")
 
 ax[0, 1].set_title("Width")
 ax[0, 1].set_xlabel("Inches")
+ax[0, 1].set_ylabel("Frequency")
 
 ax[1, 0].set_title("Power")
 ax[1, 0].set_xlabel("rpm")
+ax[1, 0].set_ylabel("Frequency")
 
 ax[1, 1].set_title("Torque")
 ax[1, 1].set_xlabel("rpm")
+ax[1, 1].set_ylabel("Frequency")
 
 ax[2, 0].set_title("Power")
 ax[2, 0].set_xlabel("horspower")
+ax[2, 0].set_ylabel("Frequency")
 
 ax[2, 1].set_title("torque")
 ax[2, 1].set_xlabel("lb's per foot")
+ax[2, 1].set_ylabel("Frequency")
 
 fig.tight_layout()
 
@@ -309,6 +323,80 @@ plt.show()
 ###############################################
 # Distributions of continuous variables (end) #
 ###############################################
+
+
+####################################################
+# Frequency plots of categorical variables (start) #
+####################################################
+
+# page 1 of the subplots
+fig, ax = plt.subplots(3,2 ,sharex= False, sharey=False)
+fig.suptitle('Distributions from the raw dataset - Page 1')
+plt.ylabel('Number of occurences')
+ax[0][0].hist(jeep_slimmed['body_type'], bins=20)
+ax[0][1].hist(jeep_slimmed['city'], bins=20)
+ax[1][0].hist(jeep_slimmed['engine_cylinders'], bins=20)
+ax[1][1].hist(jeep_slimmed['exterior_color'], bins=20)
+ax[2][0].hist(jeep_slimmed['fuel_type'], bins=20)
+ax[2][1].hist(jeep_slimmed['interior_color'], bins=20)
+
+# set the labels of the subplots
+ax[0, 0].set_title("Body Type")
+ax[0, 0].set_xlabel("Type", rotation=90)
+ax[0, 0].set_ylabel("Frequency")
+#ax[0, 0].set_xlim(40, 42)
+
+ax[0, 1].set_title("City")
+ax[0, 1].set_xlabel("city", rotation=90)
+ax[0, 1].set_ylabel("Frequency")
+#ax[0, 1].set_xlim(33, 41)
+
+ax[1, 0].set_title("Engine Cylinders")
+ax[1, 0].set_xlabel("# of cylinders", rotation=90)
+ax[1, 0].set_ylabel("Frequency")
+#ax[1, 0].set_xlim(0, 25)
+
+ax[1, 1].set_title("Exterior Color")
+ax[1, 1].set_xlabel("Color", rotation=90)
+ax[1, 1].set_ylabel("Frequency")
+
+ax[2, 0].set_title("Fuel Type")
+ax[2, 0].set_xlabel("Type", rotation=90)
+ax[2, 0].set_ylabel("Frequency")
+
+ax[2, 1].set_title("Interior Color")
+ax[2, 1].set_xlabel("Color", rotation=90)
+ax[2, 1].set_ylabel("Frequency")
+#ax[2, 1].set_xlim(3, 6)
+
+fig.tight_layout()
+
+plt.savefig('frequencies_p1.jpg')
+plt.show()
+
+##################################################
+# Frequency plots of categorical variables (end) #
+##################################################
+
+
+##########################################################################################
+# Check for Correlation and discuss removing or merge highly correlated variables (start)#
+##########################################################################################
+
+
+##############################################################################
+# Check for Correlation and remove or merge highly correlated variables (end)#
+##############################################################################
+
+
+####################################################################################
+# Frame questions to answer with the data in the next part of this pipeline (start)#
+####################################################################################
+
+
+##################################################################################
+# Frame questions to answer with the data in the next part of this pipeline (end)#
+##################################################################################
 
 print('Lets hope this data is clean enough to create models for the coming analyses')
 
