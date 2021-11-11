@@ -20,37 +20,28 @@ To clean a sample of a dataset ready for creating models in statistical analysis
 1. OUTPUT: jeep_prepped.csv
 1. OUTPUT: 2 pages of distibutions from continuous variables
 1. OUTPUT: x pages of frequency plots from the categorical variables
+| Syntax | Description |
+| --- | ----------- |
+| Header | Title |
+| Paragraph | Text |
 
 ### Data Dictionary
-###### Continuous Variables
-front_legroom - inches
-back_legroom - inches
-fuel_tank_volume - gallons
-height - inches
-length - inches
-maximum_seating - seats
-wheelbase - inches
-width - inches
-power_rpm - rpm's
-torque_rpm - rpm's
-power_hp - horsepower
-torque_lb-ft - lb's per foot
-
-###### Categorical Variables
-body_type
-city
-engine_cylinders
-engine_type
-exterior_color
-fuel_type
-interior_color
-listing_color
-make_name
-model_name
-sp_name
-transmission
-transmission_display
-trimId
-trim_name
-wheel_system
-wheel_system_display
+| Continuous Variables | Categorical Variables |
+| ----------------- | ------------------- |
+| - front_legroom - inches | - body_type | 
+| - back_legroom - inches | - city |
+| - fuel_tank_volume - gallons |  - engine_cylinders |
+| - height - inches | - engine_type |
+| - length - inches | - exterior_color |
+| - maximum_seating - seats | - fuel_type |
+| - wheelbase - inches | - interior_color |
+| - width - inches | - listing_color |
+| - power_rpm - rpm's | - make_name |
+| - torque_rpm - rpm's | - model_name |
+| - power_hp - horsepower | - sp_name |
+| - torque_lb-ft - lb's per foot | - transmission |
+| | - transmission_display |
+| | - trimId |
+| |- trim_name |
+| |- wheel_system |
+| |- wheel_system_display |
