@@ -3,7 +3,7 @@
 
 Presented is an analysis of __Used Car Sales from 2016/2017 from cargugu database__ provided by https://www.kaggle.com/ananaymital/us-used-cars-dataset.
 
-This analysis covers __retieving data from a csv file, computation and data manipulation.__
+This analysis covers __retieving data__ from a csv file, __computation and data manipulation.__
 
 This analysis is based purely in Python
 
