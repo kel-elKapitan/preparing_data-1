@@ -1,7 +1,7 @@
 # preparing_data-1
 # Background
 
-Presented is an analysis of __Used Car Sales from 2016/2017 from cargugu database__ provided by https://www.kaggle.com/ananaymital/us-used-cars-dataset.
+Presented is an analysis of __Used Car Sales from 2016/2017__ taken from __cargugu database__ provided by https://www.kaggle.com/ananaymital/us-used-cars-dataset.
 
 This analysis covers __retieving data__ from a csv file, __computation and data manipulation__ and __visualisation.__
 
