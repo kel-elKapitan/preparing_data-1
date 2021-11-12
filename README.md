@@ -22,6 +22,7 @@ To clean a sample of a dataset ready for creating models in statistical analysis
 1. OUTPUT: x pages of frequency plots from the categorical variables
 
 ### Data Dictionary
+#### INCOMPLETE
 | Continuous Variables | Categorical Variables |
 | ----------------- | ------------------- |
 | - front_legroom - inches | - body_type | 
