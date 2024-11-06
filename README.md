@@ -1,6 +1,41 @@
+
+# ** Introduction **
+
+<p>Presented is 3 methods for cleaning data that gets progressively more difficult with each iteration. The results should enable the availability of more features while retaining the maximum number of records, understanding that we will have fewer records.</p>
+
+# ** Methodology **
+
+<p>This analysis is based purely in Python 3.11.9 inside a Jupyter Notebook.
+<ul>
+<li>Modlues used are:</li>
+<ul>
+<li>Pandas</li>
+<li>Numpy</li>
+<li>gc</li>
+</ul>
+</ul>
+</p>
+
+# ** Results **
+
+# ** Decision Recommendations **
+
+# ** Conclusion **
+
+
+
+
+
+
+
+
+
+
+
+
 Background
 
-Presented is 3 methods for cleaning data that gets progressively more difficult but enriches the dataset by the availability of more features while retaining the maximum number of records.
+
 
 The dataset is taken from carguru dataset provided by https://www.kaggle.com/ananaymital/us-used-cars-dataset.
 
