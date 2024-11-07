@@ -4,8 +4,8 @@
 <p>Presented is 3 methods for cleaning data that gets progressively more difficult with each iteration. The results should enable the availability of more features while retaining the maximum number of records, understanding that we will have fewer records.</p>
 
 # ** Methodology **
-
-<p>This analysis is based purely in Python 3.11.9 inside a Jupyter Notebook.
+<p>Documentation within the Notebooks in the forma of comments</p>
+<p>This analysis is based purely in Python 3.11.9 inside 3 Jupyter Notebooks.
 <ul>
 <li>Modlues used are:</li>
 <ul>
