@@ -9,6 +9,8 @@ https://www.kaggle.com/ananaymital/us-used-cars-dataset</p>
 
 <p>The results should enable the availability of more features while retaining the maximum number of records, understanding that we will have fewer records.</p>
 
+<p>Please find the <a href="#conclusion">Conclusion Here</a> 
+
 <hr>
 
 <h1>Methodology</h1>
@@ -27,7 +29,8 @@ https://www.kaggle.com/ananaymital/us-used-cars-dataset</p>
 <li><b>File 3 - </b>split_data_IMPUTING.ipynb <b>-- WORK IN PROGRESS</b></li>
 <ul>
 <li>Understand each feature, Identify possible primary keys and problematic features</li>
-<li>Create conceptual model of how data can be used and the reasons behind the decisions</li>
+<li>Create conceptual model of how data can be used and the reasons behind the decisions
+ see table layout in appendix below</li>
 <li>Utilise Hot-Deck Imputation to reduce the amount of mising values</li>
 <li>Apply all the steps in <b>File 2</b></li>
 </ul>
@@ -107,41 +110,45 @@ https://www.kaggle.com/ananaymital/us-used-cars-dataset</p>
 <hr>
 <hr>
 
+<h1>Appendix</h1>
+
+<h2>Contents</h2>
+
+<h3>Original Table layout</h3>
+
+
+|    Column 1  |   Column 2   |
+|--------------|--------------|
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
 
 
 
 
+<h3>Proposed Table Layout (Star dimensional modelling)</h3>
+
+|    Column 1  |   Column 2   |
+|--------------|--------------|
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+| Cell 1 row 1 | Cell 2 row 1 |
+
+<hr>
 
 
 
 
-Background
-
-
-
-
-
-This analysis is based purely in Python 3.11.9 inside a Jupyter Notebook.
-
-Modlues used are:
-
-Pandas
-Numpy
-gc
-
-Aim
-
-file 1 - split_data_BRUTAL.ipynb
-file 2 - split_data_NORMAL.ipynb
-file 3 - split_data_BRUTAL.ipynb
-
-OUTPUTS: BRUTAL_results.csv, NORMAL_results.csv, IMPUTE_results.csv
-        1st row = # of columns
-        2nd row = # of rows
-
-Step-by-step usage
-
-1. Clone this repository
-2. Place the csv file from kaggle in the same directory as the 3 ipynb files
-3. Run file 1, 2 and 3 
 
